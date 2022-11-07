@@ -1,0 +1,7 @@
+E:\PixelWar\Server\Server\bin\Debug\Server.exe.config
+E:\PixelWar\Server\Server\bin\Debug\Server.exe
+E:\PixelWar\Server\Server\bin\Debug\Server.pdb
+E:\PixelWar\Server\Server\obj\Debug\GameServer.csprojAssemblyReference.cache
+E:\PixelWar\Server\Server\obj\Debug\GameServer.csproj.CoreCompileInputs.cache
+E:\PixelWar\Server\Server\obj\Debug\Server.exe
+E:\PixelWar\Server\Server\obj\Debug\Server.pdb
