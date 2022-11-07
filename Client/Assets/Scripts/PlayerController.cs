@@ -8,9 +8,19 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     public float speed;
-    public float jumpforce;
+    public float jumpForce;
+    private float horizontalMove;
 
+    public LayerMask ground;
 
+    public bool isGround, isJump, isDashing;
+
+    public Transform groundCheckA;
+    public Transform groundCheckB;
+    private bool jumpPressed;
+    private int jumpCount;
+
+    const int PlayerScale = 4;
 
     private void Awake()
     {
@@ -22,33 +32,56 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Movement();
+        if (Input.GetButtonDown("Jump") && jumpCount > 0)
+        {
+            jumpPressed = true;
+        }
+        print(horizontalMove);
+    }
+    void FixedUpdate()
+    {
+        isGround = Physics2D.OverlapCircle(groundCheckA.position, 0.1f, ground) || Physics2D.OverlapCircle(groundCheckB.position, 0.1f, ground);
+        GroundMove();
+        Jump();
     }
 
-    private void Movement()
+    private void GroundMove()
     {
-        float horizontalmove = Input.GetAxis("Horizontal");
-        float facedirection = Input.GetAxisRaw("Horizontal");
-        
+        horizontalMove = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(horizontalMove * speed, rb.velocity.y);
 
-        //ÒÆ¶¯
-        if(horizontalmove != 0)
+        if (horizontalMove != 0)
         {
-            rb.velocity = new Vector2 (horizontalmove*speed,rb.velocity.y);
-            anim.SetFloat("run",Math.Abs(facedirection));
+            transform.localScale = new Vector3(-horizontalMove* PlayerScale, 1*PlayerScale, 1);
+            anim.SetFloat("run", Math.Abs(horizontalMove));
         }
-        if(facedirection != 0)
+
+    }
+
+    void Jump()//ÌøÔ¾
+    {
+        if (isGround)
         {
-            transform.localScale = new Vector3(-facedirection*4, 1*4, 1);
+            jumpCount = 2;//¿ÉÌøÔ¾ÊýÁ¿
         }
-        //ÌøÔ¾
-        if (Input.GetButtonDown("Jump"))
+        else
         {
-            rb.velocity = new Vector2 (rb.velocity.x,jumpforce*Time.deltaTime);
+            isJump = true;
         }
-    
+        if (jumpPressed && isGround)
+        {
+            isJump = true;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpCount--;
+            jumpPressed = false;
+        }
+        else if (jumpPressed && jumpCount > 0 && isJump)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpCount-=2;
+            jumpPressed = false;
+        }
     }
 }
