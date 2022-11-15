@@ -33,7 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Google.Protobuf">
+      <HintPath>.\Google.Protobuf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,10 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\DbManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servers\Client.cs" />
     <Compile Include="Servers\Server.cs" />
+    <Compile Include="Servers\SingletonBase.cs" />
+    <Compile Include="SocketGameProtocol.cs" />
+    <Compile Include="Tool\Message.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -54,7 +62,6 @@
   <ItemGroup>
     <Folder Include="Controller\" />
     <Folder Include="DAO\" />
-    <Folder Include="Tool\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
