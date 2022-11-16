@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
-namespace GameServer.DB
+namespace GameServer.Servers
 {
     class DbManager:SingletonBase<DbManager>
     {
