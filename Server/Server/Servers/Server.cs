@@ -14,15 +14,20 @@ namespace GameServer.Servers
     {
         private Socket _serverSocket;
         private List<Client> clients = new List<Client>();
+        private UDPServer us;
 
         private ControllerManager _controllerManager;
 
         public Server(int port)
         {
+            _controllerManager = new ControllerManager(this);
+
             _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _serverSocket.Bind(new IPEndPoint(IPAddress.Any, port));
             _serverSocket.Listen(0);
             StartAccept();
+            Console.WriteLine("TCP服务已启动...");
+            us = new UDPServer(8889, this, _controllerManager);
         }
 
         /// <summary>
@@ -39,6 +44,18 @@ namespace GameServer.Servers
             Socket ClientSocket = _serverSocket.EndAccept(asyncResult);
             clients.Add(new Client(ClientSocket,this));
             StartAccept();
+        }
+
+        public Client ClientFromUserName(string user)
+        {
+            foreach (Client c in clients)
+            {
+                if (c.GetUserData._userName == user)
+                {
+                    return c;
+                }
+            }
+            return null;
         }
 
         public void HandleRequest(MainPack pack, Client client)

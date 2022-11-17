@@ -22,25 +22,8 @@ namespace GameServer.Servers
         private SqlConnection _sqlConnt;
         private EndPoint _remoteEp;
         private UserData _userData;
-        private SqlConnection _sqlConnection;
 
         public UDPServer us;
-
-        public UserInFo GetUserInFo
-        {
-            get;
-            set;
-        }
-
-        public class UserInFo
-        {
-            public string UserName
-            {
-                get; set;
-            }
-
-            
-        }
 
         public EndPoint IEP
         {
@@ -63,12 +46,13 @@ namespace GameServer.Servers
         {
             get
             {
-                return _sqlConnection;
+                return _sqlConnt;
             }
         }
 
         public Client(Socket socket,Server server)
         {
+
             _clientSocket = socket;
             _server = server;
         }

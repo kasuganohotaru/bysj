@@ -49,20 +49,20 @@
   <ItemGroup>
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\ControllerManager.cs" />
+    <Compile Include="DAO\UserData.cs" />
     <Compile Include="DB\DbManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servers\Client.cs" />
     <Compile Include="Servers\Server.cs" />
     <Compile Include="Servers\SingletonBase.cs" />
+    <Compile Include="Servers\UDPServer.cs" />
     <Compile Include="SocketGameProtocol.cs" />
     <Compile Include="Tool\Message.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
