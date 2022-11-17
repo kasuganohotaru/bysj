@@ -8,7 +8,6 @@ using System.Net;
 using GameServer.Tool;
 using SocketGameProtocol;
 using System.Data.SqlClient;
-using GameServer.DAO;
 
 namespace GameServer.Servers
 {
@@ -20,6 +19,7 @@ namespace GameServer.Servers
         private Server _server;
         private Message _msg;
         private SqlConnection _sqlConnt;
+<<<<<<< HEAD
         private EndPoint _remoteEp;
         private UserData _userData;
         private SqlConnection _sqlConnection;
@@ -66,16 +66,11 @@ namespace GameServer.Servers
                 return _sqlConnection;
             }
         }
+=======
+>>>>>>> a39b036c4c5f438da1db95df53b0b02e73ab4d96
 
         public Client(Socket socket,Server server)
         {
-            _userData = new UserData();
-            _msg = new Message();
-            _sqlConnection = DbManager.Instance.OpenDB();
-            GetUserInFo = new UserInFo();
-            _sqlConnection.Open();
-
-
             _clientSocket = socket;
             _server = server;
         }
