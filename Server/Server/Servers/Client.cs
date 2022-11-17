@@ -39,11 +39,7 @@ namespace GameServer.Servers
                 get; set;
             }
 
-            public PosPack Pos
-            {
-                get;
-                set;
-            }
+            
         }
 
         public EndPoint IEP
