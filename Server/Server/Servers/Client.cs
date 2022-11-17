@@ -14,16 +14,15 @@ namespace GameServer.Servers
 {
     class Client
     {
-        private DbManager _DB;
-
         private Socket _clientSocket;
+        //private Socket _udpClientSocket;
         private Server _server;
         private Message _msg;
         private SqlConnection _sqlConnt;
         private EndPoint _remoteEp;
         private UserData _userData;
 
-        public UDPServer us;
+        public UDPServer _us;
 
         public EndPoint IEP
         {
@@ -50,11 +49,17 @@ namespace GameServer.Servers
             }
         }
 
-        public Client(Socket socket,Server server)
+        public Client(Socket socket,Server server, UDPServer us)
         {
+            _msg = new Message();
+            _userData = new UserData();
+            _sqlConnt = DbManager.Instance.OpenDB();
 
+            _us = us;
             _clientSocket = socket;
             _server = server;
+
+            StartReceive();
         }
 
         /// <summary>
@@ -102,10 +107,16 @@ namespace GameServer.Servers
             }
         }
 
+        public void SendTo(MainPack pack)
+        {
+            if (IEP == null) return;
+            _us.SendTo(pack, IEP);
+        }
+
         private void Close()
         {
             Console.WriteLine("断开");
-
+            _sqlConnt.Close();
             _clientSocket.Close();
             _server.RemoveClient(this);
         }

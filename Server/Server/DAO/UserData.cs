@@ -12,6 +12,7 @@ namespace GameServer.DAO
     class UserData
     {
         public string _userName;
+        public string _userAcct;
 
         public bool Register(MainPack pack,SqlConnection sqlConnection)
         {
@@ -43,6 +44,7 @@ namespace GameServer.DAO
         {
             string userAcct = pack.Userinfo.UserAcct;
             string passWord = pack.Userinfo.PassWord;
+            _userAcct = userAcct;
 
             string sql = "SELECT id FROM dbo.account WHERE acct = @Param1 AND pass = @Param2";
             SqlCommand cmd = new SqlCommand(sql, sqlConnection);

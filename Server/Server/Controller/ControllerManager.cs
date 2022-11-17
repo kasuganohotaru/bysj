@@ -47,7 +47,7 @@ namespace GameServer.Controller
                     object ret = method.Invoke(controller, obj);
                     if (ret != null)
                     {
-                        //client.Send(ret as MainPack);
+                        client.Send(ret as MainPack);
                         Console.WriteLine("发送数据：");
                     }
                 }

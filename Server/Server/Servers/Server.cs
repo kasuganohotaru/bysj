@@ -14,7 +14,7 @@ namespace GameServer.Servers
     {
         private Socket _serverSocket;
         private List<Client> clients = new List<Client>();
-        private UDPServer us;
+        private UDPServer _us;
 
         private ControllerManager _controllerManager;
 
@@ -27,7 +27,7 @@ namespace GameServer.Servers
             _serverSocket.Listen(0);
             StartAccept();
             Console.WriteLine("TCP服务已启动...");
-            us = new UDPServer(8889, this, _controllerManager);
+            _us = new UDPServer(8889, this, _controllerManager);
         }
 
         /// <summary>
@@ -41,8 +41,8 @@ namespace GameServer.Servers
         private void AcceptCallBack(IAsyncResult asyncResult)
         {
             //将连接到的客户端添加到用户列表中
-            Socket ClientSocket = _serverSocket.EndAccept(asyncResult);
-            clients.Add(new Client(ClientSocket,this));
+            Socket clientSocket = _serverSocket.EndAccept(asyncResult);
+            clients.Add(new Client(clientSocket,this,_us));
             StartAccept();
         }
 
@@ -56,6 +56,20 @@ namespace GameServer.Servers
                 }
             }
             return null;
+        }
+
+        public bool SetIEP(EndPoint iPEnd, string user)
+        {
+            foreach (Client c in clients)
+            {
+                if (c.GetUserData._userName == user)
+                {
+                    c.IEP = iPEnd;
+                    //Console.WriteLine("设置IEP： "+c.IEP.ToString());
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void HandleRequest(MainPack pack, Client client)
