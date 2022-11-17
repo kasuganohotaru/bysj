@@ -8,6 +8,7 @@ using System.Net;
 using GameServer.Tool;
 using SocketGameProtocol;
 using System.Data.SqlClient;
+using GameServer.DAO;
 
 namespace GameServer.Servers
 {
@@ -19,9 +20,66 @@ namespace GameServer.Servers
         private Server _server;
         private Message _msg;
         private SqlConnection _sqlConnt;
+        private EndPoint _remoteEp;
+        private UserData _userData;
+        private SqlConnection _sqlConnection;
+
+        public UDPServer us;
+
+        public UserInFo GetUserInFo
+        {
+            get;
+            set;
+        }
+
+        public class UserInFo
+        {
+            public string UserName
+            {
+                get; set;
+            }
+
+            public PosPack Pos
+            {
+                get;
+                set;
+            }
+        }
+
+        public EndPoint IEP
+        {
+            get
+            {
+                return _remoteEp;
+            }
+            set
+            {
+                _remoteEp = value;
+            }
+        }
+
+        public UserData GetUserData
+        {
+            get { return _userData; }
+        }
+
+        public SqlConnection GetSqlConnect
+        {
+            get
+            {
+                return _sqlConnection;
+            }
+        }
 
         public Client(Socket socket,Server server)
         {
+            _userData = new UserData();
+            _msg = new Message();
+            _sqlConnection = DbManager.Instance.OpenDB();
+            GetUserInFo = new UserInFo();
+            _sqlConnection.Open();
+
+
             _clientSocket = socket;
             _server = server;
         }

@@ -20,7 +20,7 @@ namespace GameServer.Servers
             return;
         }
 
-        private SqlConnection OpenDB()//打开数据库，返回连接
+        public SqlConnection OpenDB()//打开数据库，返回连接
         {
             Init();
             SqlConnection connection = new SqlConnection(_constr);
