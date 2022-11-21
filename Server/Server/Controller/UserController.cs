@@ -42,5 +42,19 @@ namespace GameServer.Controller
             }
             return pack;
         }
+
+        public MainPack UpdataUserInfo(Server server, Client client, MainPack pack)
+        {
+            if(client.GetUserData.UpUserinfo(pack, client.GetSqlConnect))
+            {
+                pack.Returncode = ReturnCode.Succeed;
+                client.GetUserData._userName = pack.Userinfo.UserName;
+            }
+            else
+            {
+                pack.Returncode = ReturnCode.Fail;
+            }
+            return pack;
+        }
     }
 }

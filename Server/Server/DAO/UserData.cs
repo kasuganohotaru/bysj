@@ -13,6 +13,7 @@ namespace GameServer.DAO
     {
         public string _userName;
         public string _userAcct;
+        public int _skin;
 
         public bool Register(MainPack pack,SqlConnection sqlConnection)
         {
@@ -56,10 +57,18 @@ namespace GameServer.DAO
             {
 
                 _userName = pack.Userinfo.UserName = read["name"].ToString().Trim();
-                pack.Userinfo.Skin = int.Parse(read["skin"].ToString().Trim());
+                _skin = pack.Userinfo.Skin = int.Parse(read["skin"].ToString().Trim());
             }
             read.Close();
             return result;
+        }
+
+        public bool UpUserinfo(MainPack pack, SqlConnection sqlConnection)
+        {
+            if (DbManager.Instance.Updata(pack, sqlConnection))
+                return true;
+            else
+                return false;
         }
     }
 }

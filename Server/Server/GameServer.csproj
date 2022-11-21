@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\ControllerManager.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="DAO\UserData.cs" />
     <Compile Include="DB\DbManager.cs" />
     <Compile Include="Program.cs" />

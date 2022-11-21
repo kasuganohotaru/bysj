@@ -38,13 +38,14 @@ namespace SocketGameProtocol {
             "ASgCEgwKBG1hc3MYBCABKAIiOgoGQnVsbGV0EgkKAXgYASABKAISCQoBeRgC",
             "IAEoAhILCgNkaXIYAyABKAUSDQoFc3BlZWQYBCABKAIqPAoLUmVxdWVzdENv",
             "ZGUSDwoLUmVxdWVzdE5vbmUQABIICgRVc2VyEAESCAoEUm9vbRACEggKBEdh",
-            "bWUQAyrjAQoKQWN0aW9uQ29kZRIOCgpBY3Rpb25Ob25lEAASCQoFTG9naW4Q",
+            "bWUQAyr3AQoKQWN0aW9uQ29kZRIOCgpBY3Rpb25Ob25lEAASCQoFTG9naW4Q",
             "ARIMCghSZWdpc3RlchACEg4KCkNyZWF0ZVJvb20QAxIMCghGaW5kUm9vbRAE",
             "Eg4KClBMYXllckxpc3QQBRIMCghKb2luUm9vbRAGEggKBEV4aXQQBxIICgRD",
             "aGF0EAgSDQoJU3RhcnRHYW1lEAkSDAoIU3RhcnRpbmcQChIJCgVVcFBvcxAL",
             "EgwKCEV4aXRHYW1lEAwSEwoPVXBDaGFyYWN0ZXJMaXN0EA0SCAoERmlyZRAO",
-            "EgcKA0hpdBAPKkAKClJldHVybkNvZGUSDgoKUmV0dXJuTm9uZRAAEgsKB1N1",
-            "Y2NlZWQQARIICgRGYWlsEAISCwoHTm90Um9vbRADYgZwcm90bzM="));
+            "EgcKA0hpdBAPEhIKDlVwZGF0YVVzZXJJbmZvEBAqQAoKUmV0dXJuQ29kZRIO",
+            "CgpSZXR1cm5Ob25lEAASCwoHU3VjY2VlZBABEggKBEZhaWwQAhILCgdOb3RS",
+            "b29tEANiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::SocketGameProtocol.RequestCode), typeof(global::SocketGameProtocol.ActionCode), typeof(global::SocketGameProtocol.ReturnCode), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -82,6 +83,7 @@ namespace SocketGameProtocol {
     [pbr::OriginalName("UpCharacterList")] UpCharacterList = 13,
     [pbr::OriginalName("Fire")] Fire = 14,
     [pbr::OriginalName("Hit")] Hit = 15,
+    [pbr::OriginalName("UpdataUserInfo")] UpdataUserInfo = 16,
   }
 
   public enum ReturnCode {
