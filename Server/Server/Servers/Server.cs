@@ -13,7 +13,9 @@ namespace GameServer.Servers
     class Server
     {
         private Socket _serverSocket;
-        private List<Client> clients = new List<Client>();
+        private List<Client> _clients = new List<Client>();
+        private List<Room> _roomList = new List<Room>();
+
         private UDPServer _us;
 
         private ControllerManager _controllerManager;
@@ -42,13 +44,14 @@ namespace GameServer.Servers
         {
             //将连接到的客户端添加到用户列表中
             Socket clientSocket = _serverSocket.EndAccept(asyncResult);
-            clients.Add(new Client(clientSocket,this,_us));
+            _clients.Add(new Client(clientSocket,this,_us));
+            Console.WriteLine("客户端已连接，当前人数：{0}",_clients.Count);
             StartAccept();
         }
 
         public Client ClientFromUserName(string user)
         {
-            foreach (Client c in clients)
+            foreach (Client c in _clients)
             {
                 if (c.GetUserData._userName == user)
                 {
@@ -60,7 +63,7 @@ namespace GameServer.Servers
 
         public bool SetIEP(EndPoint iPEnd, string user)
         {
-            foreach (Client c in clients)
+            foreach (Client c in _clients)
             {
                 if (c.GetUserData._userName == user)
                 {
@@ -79,8 +82,15 @@ namespace GameServer.Servers
 
         public void RemoveClient(Client client)
         {
-            clients.Remove(client);
+            _clients.Remove(client);
             client = null;
+            //Memory.ClearMemory();
+        }
+
+        public void RemoveRoom(Room room)
+        {
+            _roomList.Remove(room);
+            room = null;
             //Memory.ClearMemory();
         }
     }

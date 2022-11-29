@@ -1,0 +1,8 @@
+E:\PixelWar\Server\Server\bin\Release\GameServer.exe.config
+E:\PixelWar\Server\Server\bin\Release\GameServer.exe
+E:\PixelWar\Server\Server\bin\Release\GameServer.pdb
+E:\PixelWar\Server\Server\bin\Release\Google.Protobuf.dll
+E:\PixelWar\Server\Server\obj\Release\GameServer.csproj.CoreCompileInputs.cache
+E:\PixelWar\Server\Server\obj\Release\GameServer.csproj.CopyComplete
+E:\PixelWar\Server\Server\obj\Release\GameServer.exe
+E:\PixelWar\Server\Server\obj\Release\GameServer.pdb

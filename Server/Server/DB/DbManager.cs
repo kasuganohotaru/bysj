@@ -10,9 +10,9 @@ using SocketGameProtocol;
 
 namespace GameServer.Servers
 {
-    class DbManager:SingletonBase<DbManager>
+    class DbManager : SingletonBase<DbManager>
     {
-        public string _constr = "";
+        public static string _constr = "";
 
         public override void Init()
         {

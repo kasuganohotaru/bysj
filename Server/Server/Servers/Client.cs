@@ -24,6 +24,27 @@ namespace GameServer.Servers
 
         public UDPServer _us;
 
+        public PlayerInFo GetPlayerInfo
+        {
+            get;
+            set;
+        }
+
+        public class PlayerInFo
+        {
+            public int HP
+            {
+                set;
+                get;
+            }
+
+            public PosPack Pos
+            {
+                get;
+                set;
+            }
+        }
+
         public EndPoint IEP
         {
             get
@@ -47,6 +68,11 @@ namespace GameServer.Servers
             {
                 return _sqlConnt;
             }
+        }
+
+        public Room GetRoom
+        {
+            get; set;
         }
 
         public Client(Socket socket,Server server, UDPServer us)
