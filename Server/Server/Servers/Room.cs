@@ -126,7 +126,7 @@ namespace GameServer.Servers
             {
                 //房主退出
                 pack.Actioncode = ActionCode.ExitGame;
-                //pack.Str = "r";
+                pack.Str = "r";
                 Broadcast(client, pack);
                 _server.RemoveRoom(this);
                 client.GetRoom = null;
@@ -144,7 +144,7 @@ namespace GameServer.Servers
                     playerPack.Hp = VARIABLE.GetPlayerInfo.HP;
                     pack.Playerpack.Add(playerPack);
                 }
-                //pack.Str = client.GetUserInFo.UserName;
+                pack.Str = client.GetUserInFo.UserName;
                 Broadcast(client, pack);
             }
         }

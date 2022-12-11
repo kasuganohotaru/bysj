@@ -25,7 +25,7 @@ namespace SocketGameProtocol {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhTb2NrZXRHYW1lUHJvdG9jb2wucHJvdG8SElNvY2tldEdhbWVQcm90b2Nv",
-            "bCKWAwoITWFpblBhY2sSNAoLcmVxdWVzdGNvZGUYASABKA4yHy5Tb2NrZXRH",
+            "bCKjAwoITWFpblBhY2sSNAoLcmVxdWVzdGNvZGUYASABKA4yHy5Tb2NrZXRH",
             "YW1lUHJvdG9jb2wuUmVxdWVzdENvZGUSMgoKYWN0aW9uY29kZRgCIAEoDjIe",
             "LlNvY2tldEdhbWVQcm90b2NvbC5BY3Rpb25Db2RlEjIKCnJldHVybmNvZGUY",
             "AyABKA4yHi5Tb2NrZXRHYW1lUHJvdG9jb2wuUmV0dXJuQ29kZRIsCgdQb3NQ",
@@ -34,28 +34,28 @@ namespace SocketGameProtocol {
             "aW5mbxgGIAEoCzIcLlNvY2tldEdhbWVQcm90b2NvbC5Vc2VySW5mbxIuCghy",
             "b29tcGFjaxgHIAMoCzIcLlNvY2tldEdhbWVQcm90b2NvbC5Sb29tUGFjaxIy",
             "CgpwbGF5ZXJwYWNrGAggAygLMh4uU29ja2V0R2FtZVByb3RvY29sLlBsYXll",
-            "clBhY2siTgoIVXNlckluZm8SEAoIVXNlckFjY3QYASABKAkSEAoIUGFzc1dv",
-            "cmQYAiABKAkSEAoIVXNlck5hbWUYAyABKAkSDAoEc2tpbhgEIAEoBSJCCgdQ",
-            "b3NQYWNrEgwKBFBvc1gYASABKAISDAoEUG9zWRgCIAEoAhINCgVTcGVlZBgD",
-            "IAEoAhIMCgRtYXNzGAQgASgCIjoKBkJ1bGxldBIJCgF4GAEgASgCEgkKAXkY",
-            "AiABKAISCwoDZGlyGAMgASgFEg0KBXNwZWVkGAQgASgCIksKCFJvb21QYWNr",
-            "EhAKCFJvb21OYW1lGAEgASgJEg4KBk1heE51bRgCIAEoBRIOCgZDdXJOdW0Y",
-            "AyABKAUSDQoFU3RhdGMYBCABKAUiZgoKUGxheWVyUGFjaxIKCgJJRBgBIAEo",
-            "BRISCgpQbGF5ZXJOYW1lGAIgASgJEgoKAmhwGAMgASgCEiwKB3Bvc3BhY2sY",
-            "BCABKAsyGy5Tb2NrZXRHYW1lUHJvdG9jb2wuUG9zUGFjayo8CgtSZXF1ZXN0",
-            "Q29kZRIPCgtSZXF1ZXN0Tm9uZRAAEggKBFVzZXIQARIICgRSb29tEAISCAoE",
-            "R2FtZRADKvcBCgpBY3Rpb25Db2RlEg4KCkFjdGlvbk5vbmUQABIJCgVMb2dp",
-            "bhABEgwKCFJlZ2lzdGVyEAISDgoKQ3JlYXRlUm9vbRADEgwKCEZpbmRSb29t",
-            "EAQSDgoKUExheWVyTGlzdBAFEgwKCEpvaW5Sb29tEAYSCAoERXhpdBAHEggK",
-            "BENoYXQQCBINCglTdGFydEdhbWUQCRIMCghTdGFydGluZxAKEgkKBVVwUG9z",
-            "EAsSDAoIRXhpdEdhbWUQDBITCg9VcENoYXJhY3Rlckxpc3QQDRIICgRGaXJl",
-            "EA4SBwoDSGl0EA8SEgoOVXBkYXRhVXNlckluZm8QECpACgpSZXR1cm5Db2Rl",
-            "Eg4KClJldHVybk5vbmUQABILCgdTdWNjZWVkEAESCAoERmFpbBACEgsKB05v",
-            "dFJvb20QA2IGcHJvdG8z"));
+            "clBhY2sSCwoDU3RyGAkgASgJIk4KCFVzZXJJbmZvEhAKCFVzZXJBY2N0GAEg",
+            "ASgJEhAKCFBhc3NXb3JkGAIgASgJEhAKCFVzZXJOYW1lGAMgASgJEgwKBHNr",
+            "aW4YBCABKAUiQgoHUG9zUGFjaxIMCgRQb3NYGAEgASgCEgwKBFBvc1kYAiAB",
+            "KAISDQoFU3BlZWQYAyABKAISDAoEbWFzcxgEIAEoAiI6CgZCdWxsZXQSCQoB",
+            "eBgBIAEoAhIJCgF5GAIgASgCEgsKA2RpchgDIAEoBRINCgVzcGVlZBgEIAEo",
+            "AiJLCghSb29tUGFjaxIQCghSb29tTmFtZRgBIAEoCRIOCgZNYXhOdW0YAiAB",
+            "KAUSDgoGQ3VyTnVtGAMgASgFEg0KBVN0YXRjGAQgASgFImYKClBsYXllclBh",
+            "Y2sSCgoCSUQYASABKAUSEgoKUGxheWVyTmFtZRgCIAEoCRIKCgJocBgDIAEo",
+            "AhIsCgdwb3NwYWNrGAQgASgLMhsuU29ja2V0R2FtZVByb3RvY29sLlBvc1Bh",
+            "Y2sqPAoLUmVxdWVzdENvZGUSDwoLUmVxdWVzdE5vbmUQABIICgRVc2VyEAES",
+            "CAoEUm9vbRACEggKBEdhbWUQAyr3AQoKQWN0aW9uQ29kZRIOCgpBY3Rpb25O",
+            "b25lEAASCQoFTG9naW4QARIMCghSZWdpc3RlchACEg4KCkNyZWF0ZVJvb20Q",
+            "AxIMCghGaW5kUm9vbRAEEg4KClBMYXllckxpc3QQBRIMCghKb2luUm9vbRAG",
+            "EggKBEV4aXQQBxIICgRDaGF0EAgSDQoJU3RhcnRHYW1lEAkSDAoIU3RhcnRp",
+            "bmcQChIJCgVVcFBvcxALEgwKCEV4aXRHYW1lEAwSEwoPVXBDaGFyYWN0ZXJM",
+            "aXN0EA0SCAoERmlyZRAOEgcKA0hpdBAPEhIKDlVwZGF0YVVzZXJJbmZvEBAq",
+            "QAoKUmV0dXJuQ29kZRIOCgpSZXR1cm5Ob25lEAASCwoHU3VjY2VlZBABEggK",
+            "BEZhaWwQAhILCgdOb3RSb29tEANiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::SocketGameProtocol.RequestCode), typeof(global::SocketGameProtocol.ActionCode), typeof(global::SocketGameProtocol.ReturnCode), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::SocketGameProtocol.MainPack), global::SocketGameProtocol.MainPack.Parser, new[]{ "Requestcode", "Actioncode", "Returncode", "PosPack", "Bullet", "Userinfo", "Roompack", "Playerpack" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::SocketGameProtocol.MainPack), global::SocketGameProtocol.MainPack.Parser, new[]{ "Requestcode", "Actioncode", "Returncode", "PosPack", "Bullet", "Userinfo", "Roompack", "Playerpack", "Str" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::SocketGameProtocol.UserInfo), global::SocketGameProtocol.UserInfo.Parser, new[]{ "UserAcct", "PassWord", "UserName", "Skin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::SocketGameProtocol.PosPack), global::SocketGameProtocol.PosPack.Parser, new[]{ "PosX", "PosY", "Speed", "Mass" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::SocketGameProtocol.Bullet), global::SocketGameProtocol.Bullet.Parser, new[]{ "X", "Y", "Dir", "Speed" }, null, null, null, null),
@@ -137,6 +137,7 @@ namespace SocketGameProtocol {
       userinfo_ = other.userinfo_ != null ? other.userinfo_.Clone() : null;
       roompack_ = other.roompack_.Clone();
       playerpack_ = other.playerpack_.Clone();
+      str_ = other.str_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -231,6 +232,17 @@ namespace SocketGameProtocol {
       get { return playerpack_; }
     }
 
+    /// <summary>Field number for the "Str" field.</summary>
+    public const int StrFieldNumber = 9;
+    private string str_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Str {
+      get { return str_; }
+      set {
+        str_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as MainPack);
@@ -252,6 +264,7 @@ namespace SocketGameProtocol {
       if (!object.Equals(Userinfo, other.Userinfo)) return false;
       if(!roompack_.Equals(other.roompack_)) return false;
       if(!playerpack_.Equals(other.playerpack_)) return false;
+      if (Str != other.Str) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -266,6 +279,7 @@ namespace SocketGameProtocol {
       if (userinfo_ != null) hash ^= Userinfo.GetHashCode();
       hash ^= roompack_.GetHashCode();
       hash ^= playerpack_.GetHashCode();
+      if (Str.Length != 0) hash ^= Str.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -305,6 +319,10 @@ namespace SocketGameProtocol {
       }
       roompack_.WriteTo(output, _repeated_roompack_codec);
       playerpack_.WriteTo(output, _repeated_playerpack_codec);
+      if (Str.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(Str);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -333,6 +351,9 @@ namespace SocketGameProtocol {
       }
       size += roompack_.CalculateSize(_repeated_roompack_codec);
       size += playerpack_.CalculateSize(_repeated_playerpack_codec);
+      if (Str.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Str);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -373,6 +394,9 @@ namespace SocketGameProtocol {
       }
       roompack_.Add(other.roompack_);
       playerpack_.Add(other.playerpack_);
+      if (other.Str.Length != 0) {
+        Str = other.Str;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -423,6 +447,10 @@ namespace SocketGameProtocol {
           }
           case 66: {
             playerpack_.AddEntriesFrom(input, _repeated_playerpack_codec);
+            break;
+          }
+          case 74: {
+            Str = input.ReadString();
             break;
           }
         }

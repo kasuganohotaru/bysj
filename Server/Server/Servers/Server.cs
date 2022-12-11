@@ -87,6 +87,94 @@ namespace GameServer.Servers
             //Memory.ClearMemory();
         }
 
+        public MainPack CreateRoom(Client client, MainPack pack)
+        {
+            try
+            {
+                Room room = new Room(client, pack.Roompack[0], this);
+                _roomList.Add(room);
+                foreach (PlayerPack p in room.GetPlayerInFo())
+                {
+                    pack.Playerpack.Add(p);
+                }
+                pack.Returncode = ReturnCode.Succeed;
+                return pack;
+            }
+            catch
+            {
+                pack.Returncode = ReturnCode.Fail;
+                return pack;
+            }
+        }
+
+        public MainPack FindRoom()
+        {
+            MainPack pack = new MainPack();
+            pack.Actioncode = ActionCode.FindRoom;
+            try
+            {
+                if (_roomList.Count == 0)
+                {
+                    pack.Returncode = ReturnCode.NotRoom;
+                    return pack;
+                }
+                foreach (Room room in _roomList)
+                {
+                    pack.Roompack.Add(room.GetRoomInFo);
+                }
+                pack.Returncode = ReturnCode.Succeed;
+            }
+            catch
+            {
+                pack.Returncode = ReturnCode.Fail;
+            }
+            return pack;
+        }
+
+        public MainPack JoinRoom(Client client, MainPack pack)
+        {
+            foreach (Room r in _roomList)
+            {
+                if (r.GetRoomInFo.RoomName.Equals(pack.Str))
+                {
+                    if (r.GetRoomInFo.Statc == 0)
+                    {
+                        //可以加入房间
+                        r.Join(client);
+                        pack.Roompack.Add(r.GetRoomInFo);
+                        foreach (PlayerPack p in r.GetPlayerInFo())
+                        {
+                            pack.Playerpack.Add(p);
+                        }
+                        pack.Returncode = ReturnCode.Succeed;
+                        return pack;
+                    }
+                    else
+                    {
+                        //房间不可加入
+                        pack.Returncode = ReturnCode.Fail;
+                        return pack;
+                    }
+                }
+            }
+            //没有此房间
+            pack.Returncode = ReturnCode.NotRoom;
+            return pack;
+        }
+
+        public MainPack ExitRoom(Client client, MainPack pack)
+        {
+            if (client.GetRoom == null)
+            {
+                pack.Returncode = ReturnCode.Fail;
+                return pack;
+            }
+
+            client.GetRoom.Exit(this, client);
+            pack.Returncode = ReturnCode.Succeed;
+            return pack;
+        }
+
         public void RemoveRoom(Room room)
         {
             _roomList.Remove(room);
