@@ -49,8 +49,10 @@
   <ItemGroup>
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\ControllerManager.cs" />
+    <Compile Include="Controller\GameController.cs" />
     <Compile Include="Controller\RoomController.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="DAO\Item.cs" />
     <Compile Include="DAO\UserData.cs" />
     <Compile Include="DB\DbManager.cs" />
     <Compile Include="Program.cs" />

@@ -80,7 +80,14 @@ namespace GameServer.Servers
             _msg = new Message();
             _userData = new UserData();
             _sqlConnt = DbManager.Instance.OpenDB();
-
+            if(_sqlConnt!=null)
+            {
+                Console.WriteLine("成功连接数据库");
+            }
+            else
+            {
+                Console.WriteLine("无法连接数据库");
+            }
             _us = us;
             _clientSocket = socket;
             _server = server;
@@ -118,6 +125,11 @@ namespace GameServer.Servers
                 Console.WriteLine(ex);
                 Close();
             }
+        }
+
+        public void UpPos(MainPack pack)
+        {
+            GetPlayerInfo.Pos = pack.Playerpack[0].Pospack;
         }
 
         public void Send(MainPack pack)

@@ -144,8 +144,34 @@ namespace GameServer.Servers
                     playerPack.Hp = VARIABLE.GetPlayerInfo.HP;
                     pack.Playerpack.Add(playerPack);
                 }
-                pack.Str = client.GetUserInFo.UserName;
+                pack.Str = client.GetUserData._userName;
                 Broadcast(client, pack);
+            }
+        }
+
+        public void Damage(MainPack pack, Client cc)
+        {
+            Bullet bulletPack = pack.Bullet;
+            PosPack posPack = null;
+            Client client = null;
+            foreach (Client c in _clientList)
+            {
+                if (c.GetUserData._userName == bulletPack.HitPlayer)
+                {
+                    posPack = c.GetPlayerInfo.Pos;
+                    client = c;
+                    break;
+                }
+            }
+
+            double distance = Math.Sqrt(Math.Pow((bulletPack.X - posPack.PosX), 2) + Math.Pow((bulletPack.Y - posPack.PosY), 2));
+
+            Console.WriteLine(cc.GetUserData._userName + " 击中 " + bulletPack.HitPlayer + " 距离 " + distance);
+
+            if (distance < 0.7f)
+            {
+                //击中
+                Broadcast(null, pack);
             }
         }
     }

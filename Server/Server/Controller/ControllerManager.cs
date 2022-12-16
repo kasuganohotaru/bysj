@@ -22,6 +22,13 @@ namespace GameServer.Controller
         {
             _server = server;
 
+            UserController userController = new UserController();
+            _contDic.Add(userController.GetRequestCode, userController);
+            RoomController roomController = new RoomController();
+            _contDic.Add(roomController.GetRequestCode, roomController);
+            GameController gameController = new GameController();
+            _contDic.Add(gameController.GetRequestCode, gameController);
+
         }
 
         public void HandleRequest(MainPack pack, Client client, bool isUDP = false)
