@@ -39,5 +39,7 @@ namespace GameServer.Controller
             client.GetRoom.Damage(pack, client);
             return null;
         }
+
+
     }
 }

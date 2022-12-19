@@ -6,3 +6,4 @@ E:\PixelWar\Server\Server\obj\Release\GameServer.csproj.CoreCompileInputs.cache
 E:\PixelWar\Server\Server\obj\Release\GameServer.csproj.CopyComplete
 E:\PixelWar\Server\Server\obj\Release\GameServer.exe
 E:\PixelWar\Server\Server\obj\Release\GameServer.pdb
+E:\PixelWar\Server\Server\obj\Release\GameServer.csprojAssemblyReference.cache

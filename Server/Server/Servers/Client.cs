@@ -32,7 +32,7 @@ namespace GameServer.Servers
 
         public class PlayerInFo
         {
-            public int HP
+            public float HP
             {
                 set;
                 get;
